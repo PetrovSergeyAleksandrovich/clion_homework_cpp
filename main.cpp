@@ -1,6 +1,14 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int x;
+    std::cout << "Type the number:";
+    std::cin >> x;
+
+    for (int i = 0; i < x; i++)
+    {
+        std::cout << "Fuck, World!" << "\n";
+    }
+
     return 0;
 }
