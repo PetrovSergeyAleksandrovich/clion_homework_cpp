@@ -4,8 +4,31 @@
 
 int main() {
 
-    std::vector <int> vec = {3, 4, -5, 11, 9, 2, 5, 8, 1};
-    std::vector <int> vec_sorted(vec.size(), 0);
+    std::vector <int> vec = {3, 4, -5, 11, 9, 2, 5, 8, 1, 0, 42, -15};
+
+    for (int i = vec.size()-1; i >= 0; i--)
+    {
+        int max_ind = 0;
+        for (int j=0; j <= i; j++)
+        {
+            if (vec[j] > vec[max_ind])
+                max_ind = j;
+        }
+        int tmp = vec[i];
+        vec[i] = vec[max_ind];
+        vec[max_ind] = tmp;
+    }
+
+    for (int i = 0; i < vec.size(); i++)
+    {
+        std::cout << vec[i] << " ";
+    }
+
+    return 0;
+}
+
+/*
+ ПЕРВЫЙ ВАРИАТ СОРТИРОВКИ БЕЗ ОПТИМИЗАЦИИ
 
     int min = vec[0];
     for(int i = 0; i<vec.size(); i++)
@@ -31,5 +54,4 @@ int main() {
         std::cout << vec_sorted[i] << " ";
     }
 
-    return 0;
-}
+ */
