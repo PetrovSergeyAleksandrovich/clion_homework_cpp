@@ -36,11 +36,6 @@ int main() {
         }
     }
 
-    for(auto && i : tmp)
-    {
-        std::cout << i << " ";
-    }
-
     bubble_sort(vec, tmp);
     std::cout <<"\nCurrent vector: ";
     for(int i = 0; i < vec.size(); i++){
