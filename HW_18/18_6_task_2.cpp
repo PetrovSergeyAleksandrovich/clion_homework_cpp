@@ -3,8 +3,8 @@
 
 int main() {
 
-    std::vector <int> vec = {2, 7, -12, 15, 4, 9, 11, -2, 0};
-    int x = -1; // searching number <-- CHANGE HERE
+    std::vector <int> vec = {2, 7, -12, 15, 4, 37, 11, -2, 0};
+    int x = 52; // searching number <-- CHANGE HERE
     int number_one, number_two;
     bool found = false;
 
@@ -25,8 +25,6 @@ int main() {
         }
         if (found) break;
     }
-
-    return 0;
 
     return 0;
 }
