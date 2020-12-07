@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-void bubble_sort(std::vector<int> &vec_tmp)
+void bubble_sort(std::vector<int> &vec_tmp, std::vector<bool> &vec_tmp_bool)
 {
     for (int i = 0; i < vec_tmp.size(); i++)
     {
@@ -12,6 +12,10 @@ void bubble_sort(std::vector<int> &vec_tmp)
                 int tmp = vec_tmp[j];
                 vec_tmp[j] = vec_tmp[j + 1];
                 vec_tmp[j+1] = tmp;
+
+                bool tmp_bool = vec_tmp_bool[j];
+                vec_tmp_bool[j] = vec_tmp_bool[j + 1];
+                vec_tmp_bool[j+1] = tmp_bool;
             }
         }
     }
@@ -32,7 +36,12 @@ int main() {
         }
     }
 
-    bubble_sort(vec);
+    for(auto && i : tmp)
+    {
+        std::cout << i << " ";
+    }
+
+    bubble_sort(vec, tmp);
     std::cout <<"\nCurrent vector: ";
     for(int i = 0; i < vec.size(); i++){
         if (!tmp[i]) std::cout << -1 * vec[i] << " ";
