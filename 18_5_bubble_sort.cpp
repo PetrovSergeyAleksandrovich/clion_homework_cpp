@@ -19,7 +19,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i < vec.size(); i++)
+    for(int i = 0; i < vec.size(); i++)
     {
         std::cout << vec[i] << " ";
     }
