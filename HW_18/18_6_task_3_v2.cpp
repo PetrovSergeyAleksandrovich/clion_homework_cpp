@@ -10,7 +10,7 @@ void print_vector(std::vector<int> &vec_tmp)
     std::cout << " \n";
 }
 
-int bubble_sort(std::vector<int> vec_tmp)
+int bubble_sort(std::vector<int> &vec_tmp)
 {
     int x=0;
     for (int i = 0; i < vec_tmp.size(); i++)
@@ -26,8 +26,8 @@ int bubble_sort(std::vector<int> vec_tmp)
         }
     }
 
-    std::cout << "\nSorted VECTOR";
-    print_vector(vec_tmp);
+    if(vec_tmp.size()>5) vec_tmp.pop_back();
+
     if (vec_tmp.size() > 4)
     {
         x = vec_tmp[4];
@@ -53,10 +53,10 @@ int main() {
         std::cin >> number;
 
         if (number == -1){
-            print_vector(vec);
             show_5_number = bubble_sort(vec);
-            std::cout << show_5_number << std::endl;
-
+            print_vector(vec);
+            std::cout << "5th number: " << show_5_number << std::endl;
+            continue;
         }
 
         if (number == -2){
@@ -65,6 +65,11 @@ int main() {
         }
 
         vec.push_back(number);
+
+        if(vec.size()==6)
+        {
+            bubble_sort(vec);
+        }
 
     }
 
