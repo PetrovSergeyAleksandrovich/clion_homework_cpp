@@ -1,47 +1,50 @@
 #include <iostream>
 #include <vector>
 
-void bubble_sort(std::vector<int> &vec_tmp, std::vector<bool> &vec_tmp_bool)
-{
-    for (int i = 0; i < vec_tmp.size(); i++)
-    {
-        for (int j=0; j < vec_tmp.size()-i-1; j++)
-        {
-            if (vec_tmp[j] > vec_tmp[j + 1])
-            {
-                int tmp = vec_tmp[j];
-                vec_tmp[j] = vec_tmp[j + 1];
-                vec_tmp[j+1] = tmp;
-
-                bool tmp_bool = vec_tmp_bool[j];
-                vec_tmp_bool[j] = vec_tmp_bool[j + 1];
-                vec_tmp_bool[j+1] = tmp_bool;
-            }
-        }
-    }
-}
-
 int main() {
 
     std::cout << "STARTING" << std::endl;
-    std::vector<int> vec = {100,-50, -5, 1, -10, 15};
-    std::vector<bool> tmp = {};
+    std::vector<int> vec = {-100,-50, -5, 1, 10, 15};
+    int x=0;
 
-    for(int i=0; i < vec.size(); i++)
+    for(int i = 0; i < vec.size(); i++)
     {
-        if(vec[i] >= 0) tmp.push_back(true);
-        else {
-            tmp.push_back(false);
-            vec[i] *= -1;
+        if(vec[i]>0){
+            x = i;
+            std::cout << vec[x] << " ";
+            break;
         }
     }
 
-    bubble_sort(vec, tmp);
-    std::cout <<"\nCurrent vector: ";
-    for(int i = 0; i < vec.size(); i++){
-        if (!tmp[i]) std::cout << -1 * vec[i] << " ";
-        if (tmp[i]) std::cout << vec[i] << " ";
+    if(vec.size()%2 == 0)
+    {
+        for(int i = 1; i < vec.size()/2; i++)
+        {
+
+            if(vec[x+i] > abs(vec[x-i])){
+                std::cout << vec[x-i] << " " << vec[x+i] <<" ";
+            }
+            else{
+                std::cout << vec[x+i] << " " << vec[x-i] <<" ";
+            }
+        }
+        std::cout << vec[0] << " ";
     }
+
+    if(vec.size()%2 == 1)
+    {
+        for(int i = 1; i < vec.size()/2+1; i++)
+        {
+
+            if(vec[x+i] > abs(vec[x-i])){
+                std::cout << vec[x-i] << " " << vec[x+i] <<" ";
+            }
+            else{
+                std::cout << vec[x+i] << " " << vec[x-i] <<" ";
+            }
+        }
+    }
+
     std::cout << " \n";
 
     return 0;
