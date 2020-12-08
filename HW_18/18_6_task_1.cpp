@@ -4,21 +4,24 @@
 int main() {
 
     std::vector <int> vec =  {-2,1,-3,4,-1,2,1,-5,4};
-    int max=0, index_low, index_high;
+    int max=0, index_low=0, index_high=0;
+    int sum=0;
+    int cycle=0;
 
-    for (int i = 0; i < vec.size()-1; i++)
+    for(int i = 0; i < vec.size(); i++)
     {
-        int sum=0;
-        for (int j = i; j < vec.size(); j++)
+
+        if (sum==0) index_high = i;
+        sum += vec[i];
+
+        if (sum > max)
         {
-            sum += vec[j];
-            if (sum > max)
-            {
-                max = sum;
-                index_low = i;
-                index_high = j;
-            }
+            max = sum;
+            index_low = i;
+            sum = 0;
+            i = cycle++;
         }
+
     }
 
     std::cout << "Max sum = " << max << " between " << index_low << " and " << index_high << "\n" << std::endl;
