@@ -3,32 +3,26 @@
 
 int main() {
 
-    std::vector <int> vec = {3, 4, -5, 11, 9, 2, 5, 8, 1};
-    std::vector <int> vec_sorted(vec.size(), 0);
+    std::vector <int> vec =   {-5,-2,2,-4,-5,-6,-7,1,-9};
+    int max=vec[0], index_low=-1, index_high=-1;
 
-    int min = vec[0];
-    for(int i = 0; i<vec.size(); i++)
+    for (int i = 0; i < vec.size()-1; i++)
     {
-        if (vec[i] < min)
-            min = vec[i];
-    }
-
-    for(int i = vec.size() - 1; i >= 0; i--)
-    {
-        int max_ind = 0;
-        for(int j = 0; j < vec.size(); j++)
+        int sum=0;
+        for (int j = i; j < vec.size(); j++)
         {
-            if (vec[max_ind] < vec[j])
-                max_ind = j;
+            sum += vec[j];
+            if (sum > max)
+            {
+                std::cout << i << " sum tmp = " << sum << std::endl;
+                max = sum;
+                index_low = i;
+                index_high = j;
+            }
         }
-        vec_sorted[i] = vec[max_ind];
-        vec[max_ind] = min;
     }
 
-    for (int i = 0; i < vec.size(); i++)
-    {
-        std::cout << vec_sorted[i] << " ";
-    }
+    std::cout << "Max sum = " << max << " between " << index_low << " and " << index_high << "\n" << std::endl;
 
     return 0;
 }
