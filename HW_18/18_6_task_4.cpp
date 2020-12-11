@@ -23,8 +23,8 @@ void bubble_sort(std::vector<int> &vec_tmp, std::vector<bool> &vec_tmp_bool)
 
 int main() {
 
-    std::cout << "STARTING" << std::endl;
-    std::vector<int> vec = {100,-50, -5, 1, -10, 15};
+    std::cout << "STARTING_task_4" << std::endl;
+    std::vector<int> vec = {100,-50, -5, 1, 10, 15};
     std::vector<bool> tmp = {};
 
     for(int i=0; i < vec.size(); i++)
